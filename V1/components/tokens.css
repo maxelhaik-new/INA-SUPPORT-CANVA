@@ -1,0 +1,53 @@
+:root {
+  /* ==========================================================================
+     DESIGN TOKENS - SYSTÈME DE VARIABLES (DESIGN CIBLE RECHERCHE)
+     Modifiez ces variables pour adapter instantanément le thème du deck.
+     ========================================================================== */
+
+  /* Palette Principale */
+  --bg-canvas: #161618;             /* Fond sombre du cadre extérieur */
+  --bg-slide-stone: #DDDCCE;        /* Fond signature papier pierre / beige chaud */
+  --bg-slide-white: #FFFFFF;        /* Fond blanc pur pour les slides data / tableaux */
+  --bg-card-dark: #222225;          /* Cartouche / pill sombre pour fort contraste */
+  --bg-card-stone-alt: #D1D0C1;     /* Teinte pierre légèrement contrastée */
+  --bg-card-hover: rgba(0, 0, 0, 0.03);
+
+  /* Couleurs de Texte */
+  --text-primary: #111111;          /* Noir encre profond */
+  --text-muted: #5A5A5C;            /* Gris neutre pour sous-titres et méta */
+  --text-light: #F4F4F6;            /* Blanc cassé pour texte sur fond sombre */
+  --text-light-muted: #A0A0A5;      /* Gris clair pour fond sombre */
+  --text-accent: #E63946;           /* Rouge discret pour alertes / avant */
+
+  /* Lignes, Filets & Bordures */
+  --border-line: #111111;           /* Ligne pleine 1px style presse / recherche */
+  --border-subtle: rgba(17, 17, 17, 0.15); /* Filet léger pour séparateurs */
+  --border-dark-mode: rgba(255, 255, 255, 0.15);
+
+  /* Rayons de Courbure (Radii) */
+  --radius-slide: 20px;             /* Rayon des coins de la slide principale */
+  --radius-card: 12px;              /* Rayon des cartes et cartouches intérieurs */
+  --radius-pill: 9999px;            /* Rayon pour badges et puces */
+
+  /* Typographie */
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'Space Mono', 'JetBrains Mono', 'SF Mono', Consolas, 'Courier New', monospace;
+
+  /* Graisses (Font Weights) */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 900;
+
+  /* Espacements */
+  --slide-padding: clamp(2rem, 3.5vw, 3.5rem);
+  --gap-sm: 0.75rem;
+  --gap-md: 1.25rem;
+  --gap-lg: 2rem;
+
+  /* Proportions Slide (16:9 standardisé) */
+  --slide-aspect-ratio: 16 / 9;
+  --slide-max-width: 1440px;
+}

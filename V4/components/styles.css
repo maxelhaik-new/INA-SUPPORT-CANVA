@@ -1,0 +1,268 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--c-bg); font-family: var(--font-sans); color: var(--c-ink); overflow: hidden; -webkit-font-smoothing: antialiased; }
+
+::selection { background: var(--c-sage); color: var(--c-ink); }
+
+#stage { position: absolute; top: 50%; left: 50%; width: 1280px; height: 720px; transform-origin: center; }
+.slide { position: absolute; inset: 0; background: var(--c-surface); padding: var(--pad-y) var(--pad-x);
+  display: flex; flex-direction: column; overflow: hidden; opacity: 0; pointer-events: none;
+  transition: opacity var(--duration-slide) var(--ease-editorial); box-shadow: var(--shadow-stage); }
+.slide.active { opacity: 1; pointer-events: auto; }
+.slide.dark { background: var(--c-dark); color: var(--c-inverse); }
+.slide.sage { background: var(--c-sage); }
+
+/* === SYSTÈME CINÉMATIQUE & STEPPER HYBRIDE (2026) === */
+
+/* === SYSTÈME CINÉMATIQUE & STEPPER HYBRIDE (2026) === */
+
+/* Animation unifiée d'apparition de bloc (utilisée en auto et en manuel) */
+@keyframes step-in {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+    filter: blur(8px);
+  }
+  40% {
+    opacity: 0.8;
+    filter: blur(1.5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* État masqué initial pour le mode automatique */
+.slide.is-auto .step-item {
+  opacity: 0;
+  will-change: opacity, transform, filter;
+}
+
+/* === MODE AUTOMATIQUE (Flèches Gauche / Droite) === */
+.slide.active.is-auto .step-item {
+  animation: step-in var(--dur-card) var(--ease-luxury) forwards;
+  animation-delay: var(--delay, 0.2s);
+}
+
+.slide.active.is-auto .top {
+  animation: auto-meta var(--dur-meta) var(--ease-meta) forwards;
+  animation-delay: 1.1s;
+}
+
+@keyframes auto-meta {
+  0% { opacity: 0; transform: translateY(-8px); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* === MODE MANUEL PAS-À-PAS (Flèches Haut / Bas / Espace) === */
+/* RÈGLE CLÉ : Tous les éléments de structure/contexte restent 100% VISIBLES d'emblée */
+.slide.active.is-stepped .top,
+.slide.active.is-stepped .h1,
+.slide.active.is-stepped .h2,
+.slide.active.is-stepped .big,
+.slide.active.is-stepped .giant,
+.slide.active.is-stepped .lead,
+.slide.active.is-stepped .label:not(.step-item),
+.slide.active.is-stepped .body:not(.step-item),
+.slide.active.is-stepped .ring {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  animation: none !important;
+}
+
+/* Blocs non révélés : masqués en attente */
+.slide.active.is-stepped .step-item:not(.is-revealed) {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(22px) scale(0.985) !important;
+  filter: blur(8px) !important;
+  animation: none !important;
+  transition: opacity 0.22s var(--ease-luxury), transform 0.22s var(--ease-luxury), filter 0.22s var(--ease-luxury);
+}
+
+/* Bloc qui entre à ce pas : exactement la même animation qu'au passage de slide */
+.slide.active.is-stepped .step-item.is-revealed.just-revealed {
+  animation: step-in var(--dur-card) var(--ease-luxury) forwards !important;
+}
+
+/* Blocs déjà révélés précédemment : stables et actifs */
+.slide.active.is-stepped .step-item.is-revealed:not(.just-revealed) {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: none !important;
+  filter: none !important;
+  animation: none !important;
+}
+
+/* Barre supérieure */
+.top { display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-top-lead); }
+.top .num { margin-left: auto; font-family: var(--font-mono); font-size: var(--text-num); font-weight: 500; letter-spacing: .08em; color: var(--c-muted); font-variant-numeric: tabular-nums; }
+.arrow { width: 38px; height: 38px; border: var(--hair); border-radius: 50%; display: grid; place-items: center; font-size: var(--text-prompt-sm); flex-shrink: 0; }
+.dark .arrow, .dark .pill { border-color: var(--c-line-dark); }
+.pill { border: var(--hair); border-radius: var(--r-pill); padding: 7px 16px; font-family: var(--font-mono); font-size: var(--text-num); font-weight: 500; text-transform: uppercase; letter-spacing: .08em; }
+.pill.fill { background: var(--c-sage); border-color: transparent; color: var(--c-ink); }
+
+/* Hiérarchie Typographique & Rythme Spacial */
+.h1 { font-size: var(--text-h1); font-weight: 500; letter-spacing: -0.035em; line-height: 1.02; text-wrap: balance; margin-bottom: var(--space-title-content); }
+.h1 em, .h2 em, .big em { font-style: normal; color: var(--c-muted); font-weight: 400; }
+.h2 { font-size: var(--text-h2); font-weight: 500; letter-spacing: -0.03em; line-height: 1.08; text-wrap: balance; margin-bottom: var(--space-title-content); }
+.big { font-size: var(--text-hero); font-weight: 500; letter-spacing: -0.045em; line-height: .95; }
+.lead { font-size: var(--text-lead); line-height: 1.4; letter-spacing: -0.01em; max-width: 900px; text-wrap: pretty; margin-bottom: var(--space-title-content); }
+.lead.lg { font-size: var(--text-lead-lg); }
+.lead .mute, .mute { color: var(--c-muted); }
+.h1 + .lead, .h2 + .lead { margin-top: calc(-1 * var(--space-title-content) + var(--space-title-lead)); margin-bottom: var(--space-title-content); }
+.body { font-size: var(--text-body); line-height: 1.45; }
+.label { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--c-muted); }
+.mono { font-family: var(--font-mono); }
+
+/* Grilles & Flex */
+.grow { flex: 1; min-height: 0; }
+.row { display: flex; gap: 24px; }
+.col { display: flex; flex-direction: column; gap: 16px; }
+.grid { display: grid; gap: 20px; }
+.g2 { grid-template-columns: 1fr 1fr; } .g3 { grid-template-columns: repeat(3, 1fr); } .g4 { grid-template-columns: repeat(4, 1fr); }
+.end { margin-top: auto; }
+
+/* Cartes */
+.card { background: var(--c-card); border-radius: var(--r-card); padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+.card.sage { background: var(--c-sage); } .card.ink { background: var(--c-dark); color: var(--c-inverse); }
+.card.line { background: transparent; border: var(--hair); }
+.card h3 { font-size: var(--text-title); font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; }
+.card h3.lg { font-size: var(--text-lead-lg); }
+.card p { font-size: var(--text-body-sm); line-height: 1.45; }
+.card .idx { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; color: var(--c-muted); }
+.list > * { padding: 14px 0; border-top: var(--hair); font-size: var(--text-body); line-height: 1.4; }
+.dark .list > *, .card.ink .list > * { border-color: var(--c-line-dark); }
+
+/* Cercles statistiques */
+.circle { border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; flex-shrink: 0; }
+.circle b { font-size: var(--text-h2); font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; line-height: 1; }
+.circle b.lg { font-size: var(--text-h1); }
+.circle b.xl { font-size: var(--text-h1); }
+.circle span { font-size: var(--text-stat-sub); max-width: 70%; line-height: 1.3; margin-top: 6px; }
+.c-stone { background: var(--c-stone); } .c-sage { background: var(--c-sage); } .c-ink { background: var(--c-dark); color: var(--c-inverse); } .c-white { background: var(--c-card); }
+
+/* Stats en ligne */
+.stats { display: flex; border-top: var(--hair); padding-top: 22px; }
+.stats > div { flex: 1; display: flex; align-items: center; gap: 12px; padding-right: 20px; }
+.stats > div + div { border-left: var(--hair); padding-left: 24px; }
+.stats b { font-size: var(--text-stat); font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.stats span { font-size: var(--text-stat-sub); line-height: 1.25; max-width: 140px; }
+
+/* Prompts interactifs */
+.prompt { position: relative; background: var(--c-card); border-radius: var(--r-card); padding: 22px 56px 22px 26px;
+  font-family: var(--font-mono); font-style: italic; font-weight: 400; font-size: var(--text-prompt); line-height: 1.55; cursor: pointer; transition: background .2s, border-color .2s; border: 1px solid transparent; }
+.prompt:hover { background: #fff; border-color: var(--c-line); }
+.prompt::after { content: '⧉'; position: absolute; top: 18px; right: 20px; font-style: normal; color: var(--c-muted); }
+.prompt.ok::after { content: '✓'; color: var(--c-ink); }
+.dark .prompt, .card.ink .prompt { background: rgba(255,255,255,.06); color: var(--c-inverse); }
+.dark .prompt:hover, .card.ink .prompt:hover { border-color: var(--c-line-dark); }
+.prompt.sm { font-size: var(--text-prompt-sm); padding: 16px 50px 16px 20px; }
+
+/* Placeholder graphique architectural */
+.ph { border-radius: var(--r-card); border: 1px solid var(--c-line); display: flex; flex-direction: column; justify-content: flex-end; padding: 22px;
+  background: var(--c-card); position: relative; overflow: hidden; }
+.ph::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 100% 0%, var(--c-sage) 0%, transparent 60%); opacity: 0.35; pointer-events: none; }
+.ph span { font-family: var(--font-mono); font-size: var(--text-num); font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--c-ink); position: relative; z-index: 1; }
+.dark .ph { border-color: var(--c-line-dark); background: rgba(255,255,255,.04); }
+.dark .ph::before { background: radial-gradient(circle at 100% 0%, rgba(255,255,255,0.12) 0%, transparent 60%); opacity: 0.5; }
+.dark .ph span { color: var(--c-inverse); }
+
+/* Pellicule argentique (S06) */
+.filmstrip {
+  background: var(--c-dark);
+  border-radius: var(--r-card);
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.filmstrip-sprockets {
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='12' viewBox='0 0 28 12'%3E%3Crect x='6' y='1.5' width='14' height='9' rx='2.5' fill='%23F7F7F5' fill-opacity='0.9'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  width: 100%;
+  opacity: 0.85;
+}
+.filmstrip-frames {
+  display: flex;
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+.filmstrip-frame {
+  flex: 1;
+  aspect-ratio: 2 / 3;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+.filmstrip-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-luxury);
+}
+.filmstrip-frame:hover img {
+  transform: scale(1.03);
+}
+
+/* Décor géométrique */
+.ring { position: absolute; border-radius: 50%; border: var(--hair); pointer-events: none; }
+.dark .ring { border-color: var(--c-line-dark); }
+.giant { position: absolute; font-size: var(--text-giant); font-weight: 400; letter-spacing: -0.06em; line-height: .8; pointer-events: none; font-variant-numeric: tabular-nums; }
+
+/* Barre de progression (composited transform) */
+#progress { position: fixed; left: 0; bottom: 0; width: 100%; height: 3px; background: var(--c-ink); transform-origin: left; transform: scaleX(0); transition: transform .4s var(--ease); }
+
+/* Chiffres clés en colonnes (S02, S24) */
+.figs { display: flex; align-items: stretch; border-top: var(--hair); margin-top: 8px; }
+.figs > div { flex: 1; display: flex; flex-direction: column; gap: 16px; padding: 28px 28px 0 0; }
+.figs > div + div { border-left: var(--hair); padding-left: 28px; }
+.figs b { font-size: var(--text-hero); font-weight: 500; letter-spacing: -0.045em; line-height: .95; font-variant-numeric: tabular-nums; }
+.figs span { font-size: var(--text-body); line-height: 1.4; max-width: 300px; text-wrap: pretty; }
+/* Itérations : libellé + prompt (S13) */
+.iter { display: grid; grid-template-columns: 140px 1fr; gap: 14px 24px; align-items: center; align-content: start; }
+/* Barres comparatives (S18) */
+.bars { display: grid; grid-template-columns: 160px 1fr; gap: 22px 24px; align-items: center; align-content: center; }
+.bar { display: flex; height: 150px; gap: 6px; }
+.bar .seg { border-radius: var(--r-card); padding: 22px 24px; display: flex; flex-direction: column; justify-content: space-between; font-size: var(--text-body-sm); line-height: 1.3; }
+.bar .seg b { font-size: var(--text-h2); font-weight: 500; letter-spacing: -0.03em; }
+.bar .seg.c-ink { background: var(--c-dark); color: var(--c-inverse); }
+.bar .seg.c-stone { background: var(--c-stone); }
+/* Étapes numérotées (S19) */
+.step { border-top: 1px solid var(--c-ink); padding-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+.step .idx { font-family: var(--font-mono); font-size: var(--text-label); color: var(--c-muted); }
+.step p { font-size: var(--text-body); line-height: 1.35; }
+
+/* Accessibilité : Alternative immédiate pour les usagers sensibles au mouvement */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .slide .fx-title,
+  .slide .fx-lead,
+  .slide .fx-card,
+  .slide .fx-item,
+  .slide .fx-meta,
+  .slide .fx-fade,
+  .slide .fx-ring,
+  .slide .rise {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+}

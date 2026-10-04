@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module Communication · 2P2L × INA Campus</title>
+  <link rel="stylesheet" href="./components/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    
+    <!-- Viewport 16:9 de la présentation -->
+    <div class="presentation-viewport">
+      <!-- Compteur externe (style maquette cible en haut à gauche du cadre) -->
+      <div class="slide-outer-counter" id="slide-counter-num">01</div>
+      
+      <!-- Conteneur d'assemblage des slides importées -->
+      <div id="slides-container" style="width: 100%; height: 100%; position: relative;"></div>
+    </div>
+
+    <!-- Barre d'outils et de navigation discrète -->
+    <div class="controls-bar">
+      <button class="btn-nav" id="btn-prev" aria-label="Précédent">
+        <span>←</span> Précédent
+      </button>
+      <span class="nav-hint">
+        Slide <span id="current-slide-span">1</span> / 10 · Touches ← → ou Espace · [F] Plein écran
+      </span>
+      <button class="btn-nav" id="btn-next" aria-label="Suivant">
+        Suivant <span>→</span>
+      </button>
+      <button class="btn-nav" id="btn-fullscreen" aria-label="Plein écran">
+        ⛶
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Script modulaire ES6 assemblant les composants -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

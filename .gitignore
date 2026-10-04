@@ -1,0 +1,25 @@
+# Environnements et secrets (Règle absolue)
+.env*
+!.env.example
+
+# Dépendances
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Système OS
+.DS_Store
+Thumbs.db
+
+# Fichiers de modèles & documents binaires volumineux / confidentiels
+*.pdf
+*.docx
+*.pptx
+*.xlsx
+
+# Cache et outils locaux
+.impeccable/
+.venv/
+__pycache__/
+*.pyc

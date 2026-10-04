@@ -1,0 +1,67 @@
+:root {
+  /* Palette Chromatique */
+  --c-ink: #111111;
+  --c-muted: #6C6C66;
+  --c-bg: #E8E8E4;
+  --c-surface: #F7F7F5;
+  --c-card: #FFFFFF;
+  --c-sage: #DCE5DE;
+  --c-stone: #B4B8B1;
+  --c-dark: #161414;
+  --c-inverse: #F3F2EE;
+  --c-line: rgba(17, 17, 17, 0.14);
+  --c-line-dark: rgba(243, 242, 238, 0.2);
+  --c-shadow: rgba(17, 17, 17, 0.08);
+  --shadow-stage: 0 30px 80px var(--c-shadow);
+
+  /* Familles Typographiques */
+  --font-sans: 'Inter Tight', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Échelle Typographique Normée Projection (1280x720) */
+  --text-giant: 300px;
+  --text-hero: 96px;
+  --text-h1: 64px;
+  --text-h2: 46px;
+  --text-stat: 44px;
+  --text-lead-lg: 34px;
+  --text-title: 28px;
+  --text-lead: 28px;
+  --text-body: 23px;
+  --text-body-sm: 21px;
+  --text-prompt: 21px;
+  --text-prompt-sm: 19px;
+  --text-stat-sub: 18px;
+  --text-label: 14px;
+  --text-num: 13px;
+
+  /* Formes & Espacements */
+  --r-card: 18px;
+  --r-pill: 9999px;
+  --hair: 1px solid var(--c-line);
+
+  --pad-x: 72px;
+  --pad-y: 56px;
+  --space-top-lead: 24px;
+  --space-title-content: 56px;
+  --space-title-lead: 20px;
+
+  /* Mouvement Futuriste & Fluide (2026) */
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-meta: cubic-bezier(0.12, 0.95, 0.2, 1);
+  --ease: var(--ease-luxury);
+
+  /* Durées d'animation allongées (décélération soyeuse) */
+  --duration-slide: 0.75s;
+  --dur-title: 1.30s;
+  --dur-lead: 1.20s;
+  --dur-card: 1.25s;
+  --dur-item: 1.05s;
+  --dur-meta: 0.90s;
+
+  /* Staggers courts pour écoulement fluide et continu */
+  --stagger-item: 0.12s;
+  --stagger-card: 0.18s;
+  --stagger-fast: 0.08s;
+}

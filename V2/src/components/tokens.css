@@ -1,0 +1,86 @@
+/* ============================================================
+   DESIGN TOKENS — INA Campus × GETAI Deck V3
+   Modifiez ces variables pour changer l'intégralité du thème
+   ============================================================ */
+
+:root {
+  /* ── Couleurs principales ── */
+  --color-bg-outer:        #1A1A18;   /* cadre sombre mat */
+  --color-bg-slide:        #D9D8CA;   /* fond slide beige/pierre */
+  --color-bg-slide-white:  #F7F7F5;   /* fond slide variante claire */
+  --color-bg-card:         #1E1E1B;   /* carte sombre inline */
+  --color-ink:             #111110;   /* texte principal */
+  --color-ink-muted:       #4A4A45;   /* texte secondaire */
+  --color-ink-faint:       #888880;   /* labels très discrets */
+  --color-rule:            #111110;   /* filets */
+  --color-accent:          #111110;   /* accent (identique ink pour sobriété) */
+
+  /* ── Typographie ── */
+  --font-sans:             'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:             'IBM Plex Mono', 'Courier New', monospace;
+
+  /* Échelle Typographique Fluide (calibrée pour grand écran de présentation) */
+  --text-label:            clamp(0.62rem, 0.8vw, 0.75rem);
+  --text-body-sm:          clamp(0.8rem, 1vw, 0.95rem);
+  --text-body:             clamp(0.95rem, 1.35vw, 1.22rem);
+  --text-title:            clamp(1.15rem, 1.6vw, 1.5rem);
+  --text-h2:               clamp(1.75rem, 3.2vw, 2.6rem);
+  --text-h1:               clamp(2.2rem, 4.8vw, 4rem);
+  --text-hero:             clamp(3rem, 6.8vw, 5.8rem);
+
+  /* Graisses (Swiss grotesque hierarchy) */
+  --weight-normal:         400;
+  --weight-medium:         500;
+  --weight-bold:           700;
+  --weight-black:          900;
+
+  /* Line-height proportionnelles */
+  --lh-tight:              0.98;
+  --lh-heading:            1.1;
+  --lh-body:               1.6;
+  --lh-label:              1.4;
+
+  /* Letter-spacing harmonisé */
+  --ls-label:              0.16em;
+  --ls-heading:            -0.02em;
+  --ls-hero:               -0.035em;
+
+  /* ── Espacements ── */
+  --slide-pad-x:           3rem;
+  --slide-pad-y:           2.2rem;
+  --slide-pad-bottom:      1.8rem;
+
+  /* ── Bordures & rayons ── */
+  --radius-slide:          0.5rem;
+  --radius-card:           0.75rem;
+  --border-slide:          1px solid #2A2A27;
+  --border-rule:           1px solid var(--color-rule);
+
+  /* ── Graphique — Asterisk SVG ── */
+  --star-size:             260px;
+  --star-stroke:           1.5px;
+  --star-opacity:          0.85;
+
+  /* ── Transitions ── */
+  --duration-slide:        600ms;
+  --ease-slide:            cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Reset & base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-bg-outer);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar invisible ── */
+::-webkit-scrollbar { display: none; }
