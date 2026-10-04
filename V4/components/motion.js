@@ -199,7 +199,7 @@ window.MOTION = {
           if (isNewlyEntered) {
             el.classList.add('just-revealed');
             setTimeout(() => el.classList.remove('just-revealed'), 1350);
-          } else {
+          } else if (!animate) {
             el.classList.remove('just-revealed');
           }
         } else {
