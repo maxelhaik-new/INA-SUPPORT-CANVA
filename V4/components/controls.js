@@ -21,11 +21,11 @@ window.initControls = function () {
         }
         s.classList.add('active');
 
-        if (mode === 'auto') {
+        const maxSteps = window.MOTION?.getMaxStep(i) || 0;
+        if (mode === 'auto' || maxSteps === 0) {
           window.MOTION?.playAuto(i);
         } else {
-          const max = window.MOTION?.getMaxStep(i) || 0;
-          const step = targetStep === 'last' ? max : targetStep;
+          const step = targetStep === 'last' ? maxSteps : targetStep;
           window.MOTION?.setStep(i, step, false);
         }
       } else {
@@ -61,7 +61,8 @@ window.initControls = function () {
       const hasNext = window.MOTION?.stepForward(i);
       if (!hasNext) {
         if (i < slides.length - 1) {
-          go(i + 1, 'stepped', 0);
+          const nextMax = window.MOTION?.getMaxStep(i + 1) || 0;
+          go(i + 1, nextMax > 0 ? 'stepped' : 'auto', 0);
         }
       }
       return;
@@ -72,7 +73,8 @@ window.initControls = function () {
       const hasPrev = window.MOTION?.stepBackward(i);
       if (!hasPrev) {
         if (i > 0) {
-          go(i - 1, 'stepped', 'last');
+          const prevMax = window.MOTION?.getMaxStep(i - 1) || 0;
+          go(i - 1, prevMax > 0 ? 'stepped' : 'auto', 'last');
         }
       }
       return;
