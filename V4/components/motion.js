@@ -104,8 +104,8 @@ window.MOTION = {
       }
     }
 
-    // 7. Posture / Qui suis je ? (S06) : points de la liste
-    if (slide.querySelector('.top')?.textContent.includes('Qui suis je') || slide.querySelector('.top')?.textContent.includes('Le formateur')) {
+    // 7. Posture / Qui suis je ? (S06a, S06c) : points de la liste
+    if (slide.querySelector('.top')?.textContent.includes('Qui suis je') || slide.querySelector('.top')?.textContent.includes('Le formateur') || slide.querySelector('.top')?.textContent.includes('Pratique argentique')) {
       slide.querySelectorAll('.list > div').forEach((d) => steps.push([d]));
       return steps;
     }
