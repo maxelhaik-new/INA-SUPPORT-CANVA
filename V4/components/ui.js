@@ -1,7 +1,7 @@
 // Helpers UI partagés — chaque slide s'enregistre dans window.SLIDES (compatible file://)
 window.SLIDES = [];
 window.UI = {
-  top: (label, fill) => `<div class="top rise"><div class="arrow">↘</div><div class="pill ${fill ? 'fill' : ''}">${label}</div><span class="meta-brand">ina campus</span><div class="num">{{n}}</div></div>`,
+  top: (label, fill) => `<div class="top rise"><div class="arrow">↘</div><div class="pill ${fill ? 'fill' : ''}">${label}</div><div class="pill">ina campus</div><div class="num">{{n}}</div></div>`,
   prompt: (text, sm) => `<div class="prompt ${sm ? 'sm' : ''}" data-copy>${text}</div>`,
   ph: (label, style = '') => `<div class="ph" style="${style}"><span>▢ ${label}</span></div>`,
   d: () => '',
@@ -10,7 +10,7 @@ window.UI = {
     html: `
       <div class="ring" style="width:620px;height:620px;right:-160px;bottom:-260px"></div>
       <div class="ring" style="width:380px;height:380px;right:-40px;bottom:-140px"></div>
-      <div class="top"><div class="pill fill">Partie ${num}</div><span class="meta-brand">ina campus</span><div class="num">{{n}}</div></div>
+      <div class="top"><div class="pill fill">Partie ${num}</div><div class="pill">ina campus</div><div class="num">{{n}}</div></div>
       <div class="giant" style="top:40px;right:64px">${num}</div>
       <div class="end">
         <div class="big" style="max-width:780px">${title}</div>

@@ -4,17 +4,17 @@ SLIDES.push({ html: `
   <div class="grid g3 grow rise" ${UI.d(2)}>
     <div class="card">
       <span class="idx">01 · Potentiel</span>
-      <h3>Un levier créatif décuplé</h3>
-      <p class="end">Loin d'un effet de mode, l'IA générative ouvre un champ professionnel immense : synthétiser, structurer, traduire, illustrer et débloquer la phase de cadrage.</p>
+      <h3>Un levier concret</h3>
+      <p class="end">L'IA générative n'est pas une mode. C'est un outil puissant pour synthétiser, traduire et produire plus vite.</p>
     </div>
     <div class="card">
-      <span class="idx">02 · Accessibilité</span>
+      <span class="idx">02 · Accès</span>
       <h3>À la portée de tous</h3>
-      <p class="end">Plus besoin d'être data scientist ou développeur. Avec la bonne méthode de prompt et les bons réflexes, chacun gagne un temps précieux dans son travail quotidien.</p>
+      <p class="end">Zéro code requis. Avec de bons réflexes, chacun gagne un temps précieux sur son quotidien.</p>
     </div>
     <div class="card ink">
-      <span class="idx" style="color:var(--c-stone)">03 · Exigence</span>
-      <h3>Un copilote, pas un oracle</h3>
-      <p class="end">L'outil n'a de valeur que guidé par votre intention. Il produit un premier jet et accélère la cadence, mais votre regard critique et vos choix d'auteur restent souverains.</p>
+      <span class="idx" style="color:var(--c-stone)">03 · Limites</span>
+      <h3>Un copilote sous contrôle</h3>
+      <p class="end">L'IA exécute, vous décidez. Sans votre regard critique et votre intention, elle ne produit que du bruit.</p>
     </div>
   </div>` });
