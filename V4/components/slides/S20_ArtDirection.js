@@ -14,6 +14,6 @@ SLIDES.push({ cls: 'dark', html: `
     <div class="col rise" ${UI.d(2)} style="flex:1.1;justify-content:center">
       ${UI.prompt('Tu es directeur artistique senior chez 2P2L. Définis la DA du kit des Rencontres Créatives 2027.', 1)}
       ${UI.prompt('Une palette de 4 couleurs avec codes hexadécimaux, et un duo de typographies natives Canva.', 1)}
-      ${UI.prompt('Trois mots d\'ordre graphiques, puis trois prompts Midjourney en anglais pour des photos réalistes sans texte.', 1)}
+      ${UI.prompt('Trois mots d\'ordre graphiques, puis trois prompts Midjourney en français pour des photos réalistes sans texte.', 1)}
     </div>
   </div>` });

@@ -4,13 +4,13 @@ SLIDES.push({ html: `
     <div class="col" style="flex:1.25">
       <div class="h2 rise" ${UI.d(1)}>Des images réalistes <em>pour toute la série</em></div>
       <div class="col rise" ${UI.d(2)}>
-        <span class="label">Prompts en anglais, issus de la direction artistique</span>
-        ${UI.prompt('Wide shot of a contemporary festival venue in Paris at dusk, creative professionals talking near large projection screens, natural light, 35mm photography, realistic, no text --ar 4:5 --style raw', 1)}
-        ${UI.prompt('Close-up of hands on an editing desk with a tablet showing a video timeline, soft window light, shallow depth of field, documentary photography, no text --ar 4:5 --style raw', 1)}
+        <span class="label">Prompts en français, issus de la direction artistique</span>
+        ${UI.prompt('Plan large d\'un lieu d\'événement contemporain à Paris au crépuscule, professionnels de la création échangeant près de grands écrans de projection, lumière naturelle, photographie 35mm, réaliste, sans texte', 1)}
+        ${UI.prompt('Gros plan sur des mains à une table de montage avec une tablette affichant une timeline vidéo, lumière douce venant d\'une fenêtre, faible profondeur de champ, photo documentaire, sans texte', 1)}
       </div>
     </div>
     <div class="card ink rise" ${UI.d(3)} style="flex:.75">
       <span class="label" style="color:var(--c-stone)">Les réglages utiles</span>
-      <div class="list end"><div>--ar 4:5 pour le carrousel, 16:9 pour Gamma.</div><div>--style raw pour un rendu photo plus naturel.</div><div>--sref avec votre meilleure image pour garder le même style.</div><div>Vary (Subtle) pour corriger, puis Upscale avant export.</div></div>
+      <div class="list end"><div>Format d'image : 4:5 pour le carrousel, 16:9 pour Gamma.</div><div>Style brut : pour un rendu photo plus réaliste et naturel.</div><div>Image de référence : pour conserver exactement la même ambiance.</div><div>Bouton Varier léger pour ajuster, puis Agrandir avant l'export.</div></div>
     </div>
   </div>` });

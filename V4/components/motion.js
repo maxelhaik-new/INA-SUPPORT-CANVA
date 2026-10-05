@@ -129,7 +129,7 @@ window.MOTION = {
     }
 
     // 10. Clôture / Bilan (S25) : les points de bilan
-    if (slide.querySelector('.big')?.textContent.includes('Dès demain') || slide.querySelector('.top')?.textContent.includes('Bilan')) {
+    if (slide.querySelector('.big')?.textContent.includes('Avant') || slide.querySelector('.pill')?.textContent.includes('Bilan')) {
       slide.querySelectorAll('.list > div').forEach((d) => steps.push([d]));
       return steps;
     }
