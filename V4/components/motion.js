@@ -84,8 +84,14 @@ window.MOTION = {
       return steps;
     }
 
-    // 5. Statistiques en bande (.stats > div) — ex: S14 CaseStudy
+    // 5. Cas pratique avec prompt copiable et statistiques en bande — ex: S14 CaseStudy
+    const casePrompt = slide.querySelector('.prompt');
     const stats = slide.querySelectorAll('.stats > div');
+    if (slide.querySelector('.top')?.textContent.includes('Cas pratique') && casePrompt) {
+      steps.push([casePrompt]);
+      stats.forEach((d) => steps.push([d]));
+      return steps;
+    }
     if (stats.length > 0) {
       stats.forEach((d) => steps.push([d]));
       return steps;
@@ -116,8 +122,8 @@ window.MOTION = {
       return steps;
     }
 
-    // 9. Démonstrations (S23) : les points Whisper, puis les points Agents
-    if (slide.querySelector('.top')?.textContent.includes('Démonstrations')) {
+    // 9. Pour aller plus loin (S23) : Notion, puis NotebookLM
+    if (slide.querySelector('.top')?.textContent.includes('Pour aller plus loin')) {
       slide.querySelectorAll('.list > div').forEach((d) => steps.push([d]));
       return steps;
     }

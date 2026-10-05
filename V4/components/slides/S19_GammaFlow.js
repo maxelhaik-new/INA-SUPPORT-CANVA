@@ -4,8 +4,8 @@ SLIDES.push({ html: `
   <div class="grid g4 rise" ${UI.d(2)} >
     <div class="step"><span class="idx">1</span><p>Claude rédige le plan balisé.</p></div>
     <div class="step"><span class="idx">2</span><p>Copiez le texte.</p></div>
-    <div class="step"><span class="idx">3</span><p>Dans Gamma, choisissez Coller du texte, format 16:9.</p></div>
-    <div class="step"><span class="idx">4</span><p>Appliquez la charte, puis exportez en .pptx.</p></div>
+    <div class="step"><span class="idx">3</span><p>Dans Gamma, Coller du texte, format 16:9, puis la charte.</p></div>
+    <div class="step"><span class="idx">4</span><p>Remplacez les images par vos visuels Midjourney, exportez en .pptx.</p></div>
   </div>
   <div class="grid g2 grow rise" ${UI.d(3)} style="margin-top:28px">
     ${UI.prompt('À partir de la note de cadrage, prépare le plan d\'un pitch de 8 slides pour partenaires et mécènes.', 1)}

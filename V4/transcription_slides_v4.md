@@ -132,15 +132,25 @@
 
 ---
 
-### Slide 14 · Cas pratique *(Fond sauge)*
-- **Badge / Sur-titre** : `Cas pratique`
-- **Titre principal** : Les Rencontres Créatives de l'Audiovisuel *et des Nouveaux Médias 2027*
-- **Chapô** : Explorer les nouvelles écritures de l'image *et l'hybridation des récits.*
+### Slide 14 · Cas pratique · Le brief *(Fond sauge)*
+- **Badge / Sur-titre** : `Cas pratique · Le brief`
+- **Titre principal** : Les Rencontres Créatives *de l'Audiovisuel 2027*
+- **Chapô** : Brief officiel de commande pour les 4 livrables *(cliquez pour copier le texte brut dans le presse-papier).*
+- **Brief brut copiable (bloc monospace interactif)** :
+  `Bonjour à l'équipe. L'agence porte à l'automne 2027 le lancement des Rencontres Créatives de l'Audiovisuel et des Nouveaux Médias. L'ambition est de réunir sur deux jours 400 professionnels, diffuseurs, créateurs de formats digitaux, marques et jeunes diplômés pour explorer les nouvelles écritures de l'image et l'hybridation des récits.
+
+Nous devons finaliser pour vendredi :
+1. Une note de cadrage stratégique complète pour validation interne de la direction.
+2. Une estimation budgétaire ventilée et un rétroplanning de communication sur 6 mois.
+3. Une présentation synthétique de 8 slides pour convaincre des partenaires et mécènes.
+4. Une première piste de kit visuel avec affiche événementielle et carrousel percutant pour nos réseaux sociaux.
+
+Le ton doit être audacieux, contemporain et inspirant, résolument tourné vers l'avenir de nos métiers, sans jamais tomber dans le jargon institutionnel austère.`
 - **Métriques en bande** :
   - **400** : professionnels
   - **2** : jours
   - **6** : mois de communication
-  - **4** : livrables à rendre vendredi
+  - **4** : livrables vendredi
 
 ---
 

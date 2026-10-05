@@ -35,6 +35,9 @@ window.initControls = function () {
 
     bar.style.transform = `scaleX(${(i + 1) / slides.length})`;
     history.replaceState(null, '', '#' + (i + 1));
+
+    if (btnPrev) btnPrev.disabled = i === 0;
+    if (btnNext) btnNext.disabled = i === slides.length - 1;
   };
 
   const fit = () => {
@@ -43,6 +46,18 @@ window.initControls = function () {
   };
   addEventListener('resize', fit);
   fit();
+
+  // Boutons discrets sous la présentation
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  btnPrev?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    go(i - 1, 'auto');
+  });
+  btnNext?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    go(i + 1, 'auto');
+  });
 
   addEventListener('keydown', (e) => {
     // 1. Navigation complète de slide en mode automatique
@@ -85,12 +100,29 @@ window.initControls = function () {
     }
   });
 
+  // Passage de slides au clic (équivalent flèches gauche / droite)
   stage.addEventListener('click', (e) => {
+    // 1. Clic sur prompt ou bloc copiable : copier sans changer de slide
     const p = e.target.closest('[data-copy]');
     if (p) {
       navigator.clipboard?.writeText(p.textContent.trim());
       p.classList.add('ok');
       setTimeout(() => p.classList.remove('ok'), 1500);
+      return;
+    }
+
+    // 2. Clic sur un bouton ou lien interactif : ignorer
+    if (e.target.closest('button, a, input')) {
+      return;
+    }
+
+    // 3. Tiers gauche -> slide précédente, reste -> slide suivante
+    const rect = stage.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    if (clickX < rect.width * 0.3) {
+      go(i - 1, 'auto');
+    } else {
+      go(i + 1, 'auto');
     }
   });
 

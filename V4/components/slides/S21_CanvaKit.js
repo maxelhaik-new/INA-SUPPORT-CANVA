@@ -10,4 +10,4 @@ SLIDES.push({ html: `
       <span class="label">Carrousel 1080 × 1350 : accroche, 3 temps forts, date et inscription</span>
     </div>
   </div>
-  <p class="body rise" ${UI.d(3)} >La fonction Redimensionner décline ensuite le visuel <span class="mute">en story 9:16 et en bannière web.</span></p>` });
+  <p class="body rise" ${UI.d(3)} >Les images Midjourney servent de fond, le texte est posé dans Canva. <span class="mute">Redimensionner décline ensuite en story 9:16 et bannière web.</span></p>` });

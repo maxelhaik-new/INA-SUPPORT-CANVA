@@ -10,7 +10,7 @@ class NoCacheHandler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     PORT = 8080
-    socketserver.TCPServer.allow_reuse_address = True
-    with socketserver.TCPServer(("", PORT), NoCacheHandler) as httpd:
-        print(f"Zero-cache server running at http://localhost:{PORT}/")
+    socketserver.ThreadingTCPServer.allow_reuse_address = True
+    with socketserver.ThreadingTCPServer(("", PORT), NoCacheHandler) as httpd:
+        print(f"Zero-cache threaded server running at http://localhost:{PORT}/")
         httpd.serve_forever()
