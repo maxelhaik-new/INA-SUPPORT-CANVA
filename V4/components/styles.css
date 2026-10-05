@@ -180,6 +180,7 @@ html, body { height: 100%; background: var(--c-bg); font-family: var(--font-sans
 .card p { font-size: var(--text-body-sm); line-height: 1.45; }
 .card .idx { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; color: var(--c-muted); }
 .list > * { padding: 14px 0; border-top: var(--hair); font-size: var(--text-body); line-height: 1.4; }
+.list.sm > * { font-size: var(--text-body-sm); padding: 10px 0; line-height: 1.35; }
 .dark .list > *, .card.ink .list > * { border-color: var(--c-line-dark); }
 
 /* Cercles statistiques */
@@ -203,7 +204,7 @@ html, body { height: 100%; background: var(--c-bg); font-family: var(--font-sans
 .prompt:hover { background: #fff; border-color: var(--c-line); }
 .prompt::after { content: '⧉'; position: absolute; top: 18px; right: 20px; font-style: normal; color: var(--c-muted); }
 .prompt.ok { border-color: var(--c-accent); }
-.prompt.ok::after { content: '✓'; color: #0d5426; font-weight: 600; }
+.prompt.ok::after { content: '✓'; color: var(--c-ink); font-weight: 600; }
 .dark .prompt, .card.ink .prompt { background: rgba(255,255,255,.06); color: var(--c-inverse); }
 .dark .prompt:hover, .card.ink .prompt:hover { border-color: var(--c-line-dark); }
 .prompt.sm { font-size: var(--text-prompt-sm); padding: 16px 50px 16px 20px; }
@@ -216,6 +217,10 @@ html, body { height: 100%; background: var(--c-bg); font-family: var(--font-sans
 .dark .ph { border-color: var(--c-line-dark); background: rgba(255,255,255,.04); }
 .dark .ph::before { background: radial-gradient(circle at 100% 0%, rgba(255,255,255,0.12) 0%, transparent 60%); opacity: 0.5; }
 .dark .ph span { color: var(--c-inverse); }
+
+/* Portrait (S06a) */
+.portrait { flex: 0 0 auto; align-self: center; height: 100%; max-height: 500px; aspect-ratio: 1 / 1; border-radius: var(--r-card); overflow: hidden; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* Mosaïque photo verticale épurée (S06c) */
 .photo-mosaic {

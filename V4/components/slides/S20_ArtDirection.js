@@ -5,10 +5,10 @@ SLIDES.push({ cls: 'dark', html: `
       <div class="h2 rise" ${UI.d(1)}>Définir le style <em>avant d'ouvrir Canva</em></div>
       <p class="lead mute rise" ${UI.d(2)}>Sans direction claire, on finit souvent par reprendre les modèles Canva que tout le monde utilise.</p>
       <div class="row rise end" ${UI.d(3)} style="gap:12px">
-        <div class="circle c-stone" style="width:76px;height:76px;font-size:11px;font-family:var(--font-mono);font-weight:600">#B4B8B1</div>
-        <div class="circle c-sage" style="width:76px;height:76px;font-size:11px;font-family:var(--font-mono);font-weight:600">#DCE5DE</div>
-        <div class="circle c-white" style="width:76px;height:76px;font-size:11px;font-family:var(--font-mono);font-weight:600">#FFFFFF</div>
-        <div class="circle" style="width:76px;height:76px;font-size:11px;font-family:var(--font-mono);font-weight:600;border:1px solid var(--c-line-dark)">#161414</div>
+        <div class="circle c-stone" style="width:76px;height:76px;font-size:var(--text-num);font-family:var(--font-mono);font-weight:600">#B4B8B1</div>
+        <div class="circle c-sage" style="width:76px;height:76px;font-size:var(--text-num);font-family:var(--font-mono);font-weight:600">#DCE5DE</div>
+        <div class="circle c-white" style="width:76px;height:76px;font-size:var(--text-num);font-family:var(--font-mono);font-weight:600">#FFFFFF</div>
+        <div class="circle" style="width:76px;height:76px;font-size:var(--text-num);font-family:var(--font-mono);font-weight:600;border:1px solid var(--c-line-dark)">#161414</div>
       </div>
     </div>
     <div class="col rise" ${UI.d(2)} style="flex:1.1;justify-content:center">

@@ -5,10 +5,10 @@ SLIDES.push({ html: `
       <div>
         <div class="h2 rise" ${UI.d(1)}>Garder un ancrage <em>dans le réel</em></div>
       </div>
-      <div class="list rise" style="margin-top:8px" ${UI.d(2)}>
-        <div style="font-size:var(--text-body-sm);padding:10px 0;line-height:1.35"><strong>Créer sans IA</strong> : la pratique artisanale (photo argentique) préserve le geste d'auteur.</div>
-        <div style="font-size:var(--text-body-sm);padding:10px 0;line-height:1.35"><strong>L'humain d'abord</strong> : je rejette les usages où l'algorithme prétend remplacer la sensibilité.</div>
-        <div style="font-size:var(--text-body-sm);padding:10px 0;line-height:1.35"><strong>Apprentissage continu</strong> : mes méthodes et certitudes évoluent au rythme de la technologie.</div>
+      <div class="list sm rise" style="margin-top:8px" ${UI.d(2)}>
+        <div><strong>Créer sans IA</strong> : la pratique artisanale (photo argentique) préserve le geste d'auteur.</div>
+        <div><strong>L'humain d'abord</strong> : je rejette les usages où l'algorithme prétend remplacer la sensibilité.</div>
+        <div><strong>Apprentissage continu</strong> : mes méthodes et certitudes évoluent au rythme de la technologie.</div>
       </div>
     </div>
     <div class="photo-mosaic rise" ${UI.d(2)} style="flex:1.25">
