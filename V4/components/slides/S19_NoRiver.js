@@ -1,5 +1,5 @@
 SLIDES.push({ html: `
-  ${UI.top('Le constat')}
+  ${UI.top('Longueur des prompts')}
   <div class="row grow" style="gap:56px;align-items:center">
     <div style="flex:1.2">
       <div class="h1 rise" ${UI.d(1)}>Les prompts très longs <em>fonctionnent mal</em></div>

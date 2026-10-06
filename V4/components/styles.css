@@ -13,8 +13,6 @@ html, body { height: 100%; background: var(--c-bg); font-family: var(--font-sans
 
 /* === SYSTÈME CINÉMATIQUE & STEPPER HYBRIDE (2026) === */
 
-/* === SYSTÈME CINÉMATIQUE & STEPPER HYBRIDE (2026) === */
-
 /* Animation unifiée d'apparition de bloc (utilisée en auto et en manuel) */
 @keyframes step-in {
   0% {
@@ -105,6 +103,8 @@ html, body { height: 100%; background: var(--c-bg); font-family: var(--font-sans
 .slide.active.is-stepped:not(.slide-section):not(.slide-cover) .top,
 .slide.active.is-stepped:not(.slide-section):not(.slide-cover) .h1,
 .slide.active.is-stepped:not(.slide-section):not(.slide-cover) .h2,
+.slide.active.is-stepped:not(.slide-section):not(.slide-cover) .fiche-name,
+.slide.active.is-stepped:not(.slide-section):not(.slide-cover) .fiche-media,
 .slide.active.is-stepped:not(.slide-section):not(.slide-cover) .big,
 .slide.active.is-stepped:not(.slide-section):not(.slide-cover) .giant,
 .slide.active.is-stepped:not(.slide-section):not(.slide-cover) .lead,
@@ -199,9 +199,9 @@ html, body { height: 100%; background: var(--c-bg); font-family: var(--font-sans
 .stats span { font-size: var(--text-stat-sub); line-height: 1.25; max-width: 140px; }
 
 /* Prompts interactifs */
-.prompt { position: relative; background: var(--c-card); border-radius: var(--r-card); padding: 22px 56px 22px 26px;
-  font-family: var(--font-mono); font-style: italic; font-weight: 400; font-size: var(--text-prompt); line-height: 1.55; cursor: pointer; transition: background .2s, border-color .2s; border: 1px solid transparent; }
-.prompt:hover { background: #fff; border-color: var(--c-line); }
+.prompt { position: relative; background: var(--c-card); border-radius: var(--r-card); padding: 24px 56px 24px 28px;
+  font-family: var(--font-mono); font-style: italic; font-weight: 400; font-size: var(--text-prompt); line-height: 1.55; cursor: pointer; transition: background .2s, border-color .2s, box-shadow .2s; border: var(--hair); box-shadow: 0 4px 16px rgba(17, 17, 17, 0.04); }
+.prompt:hover { background: #fff; border-color: rgba(17, 17, 17, 0.3); }
 .prompt::after { content: '⧉'; position: absolute; top: 18px; right: 20px; font-style: normal; color: var(--c-muted); }
 .prompt.ok { border-color: var(--c-accent); }
 .prompt.ok::after { content: '✓'; color: var(--c-ink); font-weight: 600; }
@@ -314,31 +314,51 @@ html, body { height: 100%; background: var(--c-bg); font-family: var(--font-sans
 .nav-arrow:active {
   transform: scale(0.92);
 }
+.nav-arrow:focus-visible {
+  outline: 2px solid var(--c-ink);
+  outline-offset: 2px;
+}
 .nav-arrow:disabled {
   opacity: 0.22;
   cursor: default;
   pointer-events: none;
 }
 
-/* Chiffres clés en colonnes (S02, S24) */
+/* Chiffres clés en colonnes (S02, S31) */
 .figs { display: flex; align-items: stretch; border-top: var(--hair); margin-top: 8px; }
 .figs > div { flex: 1; display: flex; flex-direction: column; gap: 16px; padding: 28px 28px 0 0; }
 .figs > div + div { border-left: var(--hair); padding-left: 28px; }
 .figs b { font-size: var(--text-hero); font-weight: 500; letter-spacing: -0.045em; line-height: .95; font-variant-numeric: tabular-nums; }
 .figs span { font-size: var(--text-body); line-height: 1.4; max-width: 300px; text-wrap: pretty; }
-/* Itérations : libellé + prompt (S13) */
+/* Itérations : libellé + prompt (S21) */
 .iter { display: grid; grid-template-columns: 140px 1fr; gap: 14px 24px; align-items: center; align-content: start; }
-/* Barres comparatives (S18) */
-.bars { display: grid; grid-template-columns: 160px 1fr; gap: 22px 24px; align-items: center; align-content: center; }
-.bar { display: flex; height: 150px; gap: 6px; }
-.bar .seg { border-radius: var(--r-card); padding: 22px 24px; display: flex; flex-direction: column; justify-content: space-between; font-size: var(--text-body-sm); line-height: 1.3; }
-.bar .seg b { font-size: var(--text-h2); font-weight: 500; letter-spacing: -0.03em; }
-.bar .seg.c-ink { background: var(--c-dark); color: var(--c-inverse); }
-.bar .seg.c-stone { background: var(--c-stone); }
-/* Étapes numérotées (S19) */
-.step { border-top: 1px solid var(--c-ink); padding-top: 14px; display: flex; flex-direction: column; gap: 8px; }
-.step .idx { font-family: var(--font-mono); font-size: var(--text-label); color: var(--c-muted); }
-.step p { font-size: var(--text-body); line-height: 1.35; }
+
+
+/* Fiche outil : présentation d'un outil avec capture d'interface */
+.fiche-name { font-size: 52px; font-weight: 500; letter-spacing: -0.04em; line-height: .95; }
+.fiche-rows { display: flex; flex-direction: column; }
+.fiche-row { display: grid; grid-template-columns: 135px 1fr; gap: 16px; padding: 11px 0; border-top: var(--hair); align-items: baseline; }
+.fiche-row:last-child { border-bottom: var(--hair); }
+.fiche-row .label { padding-top: 2px; }
+.fiche-row p { font-size: 17px; line-height: 1.35; text-wrap: pretty; }
+.dark .fiche-row { border-color: var(--c-line-dark); }
+
+.fiche-media {
+  border-radius: var(--r-card);
+  border: var(--hair);
+  overflow: hidden;
+  background: var(--c-card);
+  aspect-ratio: 16 / 9;
+  position: relative;
+  box-shadow: 0 12px 36px var(--c-shadow);
+}
+.fiche-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+}
 
 /* Accessibilité : Alternative immédiate pour les usagers sensibles au mouvement */
 @media (prefers-reduced-motion: reduce) {

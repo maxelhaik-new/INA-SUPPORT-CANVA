@@ -1,14 +1,14 @@
 SLIDES.push({ html: `
-  ${UI.top('Posture · Pratique argentique')}
+  ${UI.top('Pratique argentique')}
   <div class="row grow" style="gap:48px;align-items:stretch">
     <div class="col" style="flex:0.95;justify-content:center;gap:24px">
       <div>
         <div class="h2 rise" ${UI.d(1)}>Garder un ancrage <em>dans le réel</em></div>
       </div>
       <div class="list sm rise" style="margin-top:8px" ${UI.d(2)}>
-        <div><strong>Créer sans IA</strong> : la pratique artisanale (photo argentique) préserve le geste d'auteur.</div>
-        <div><strong>L'humain d'abord</strong> : je rejette les usages où l'algorithme prétend remplacer la sensibilité.</div>
-        <div><strong>Apprentissage continu</strong> : mes méthodes et certitudes évoluent au rythme de la technologie.</div>
+        <div style="line-height:1.45"><strong>Le goût de l'artisanat</strong> : je reste profondément attaché à la part humaine de la création, à travers des projets 100 % manuels (comme l'argentique).</div>
+        <div style="line-height:1.45"><strong>L'IA au bon endroit</strong> : l'objectif n'est pas de tout déléguer, mais de cibler les étapes où l'outil apporte une vraie valeur ajoutée.</div>
+        <div style="line-height:1.45"><strong>Gagner en qualité</strong> : bien intégrée, l'IA fait gagner un temps précieux tout en gardant notre sensibilité au cœur du projet final.</div>
       </div>
     </div>
     <div class="photo-mosaic rise" ${UI.d(2)} style="flex:1.25">

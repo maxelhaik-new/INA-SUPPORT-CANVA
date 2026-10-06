@@ -1,13 +1,9 @@
 SLIDES.push({ html: `
-  ${UI.top('Livrable 3 · PowerPoint')}
-  <div class="h2 rise" ${UI.d(1)}>De Claude à Gamma <em>en 4 étapes</em></div>
-  <div class="grid g4 rise" ${UI.d(2)} >
-    <div class="step"><span class="idx">1</span><p>Claude rédige le plan balisé.</p></div>
-    <div class="step"><span class="idx">2</span><p>Copiez le texte.</p></div>
-    <div class="step"><span class="idx">3</span><p>Dans Gamma, Coller du texte, format 16:9, puis la charte.</p></div>
-    <div class="step"><span class="idx">4</span><p>Remplacez les images par vos visuels Midjourney, exportez en .pptx.</p></div>
+  ${UI.top('Présenter')}
+  <div class="h2 rise" ${UI.d(1)}>De la note <em>à la présentation</em></div>
+  <p class="lead mute rise" ${UI.d(1.5)} style="margin-bottom:24px">Nous utilisons la fonctionnalité Claude Slide pour concevoir et affiner le support en direct.</p>
+  <div class="grid g2 grow rise" ${UI.d(2)} >
+    <div class="col"><span class="label">1 · Premier prompt</span>${UI.prompt('À partir de la note de cadrage LA TEAM, génère avec Claude Slide un pitch de 8 slides pour convaincre un diffuseur et la marque. Structure sobre et lisible, ton audacieux et contemporain, 3 points clés par slide.')}</div>
+    <div class="col"><span class="label">2 · Itération</span>${UI.prompt('Reformule la slide 3 pour valoriser concrètement la mécanique narrative, allège le texte et ajoute des notes d\\'orateur.')}</div>
   </div>
-  <div class="grid g2 grow rise" ${UI.d(3)} style="margin-top:28px">
-    ${UI.prompt('À partir de la note de cadrage, prépare le plan d\'un pitch de 8 slides pour partenaires et mécènes.', 1)}
-    ${UI.prompt('Markdown pur : un titre # par slide, un sous-titre d\'une ligne, 3 puces de 15 mots maximum. Aucun commentaire.', 1)}
-  </div>` });
+  <p class="body rise" ${UI.d(3)} style="margin-top:18px">Dans PowerPoint, Copilot sait aussi créer une présentation depuis un document Word. <span class="mute">À essayer à votre poste.</span></p>` });

@@ -116,27 +116,15 @@ window.MOTION = {
       return steps;
     }
 
-    // 8. CanvaKit (S21) : Affiche A5, puis Carrousel
-    if (slide.querySelector('.top')?.textContent.includes('Livrable 4 · Canva')) {
-      slide.querySelectorAll('.row.grow > .col').forEach((c) => steps.push([c]));
-      return steps;
-    }
-
-    // 9. Pour aller plus loin (S23) : Notion, puis NotebookLM
-    if (slide.querySelector('.top')?.textContent.includes('Pour aller plus loin')) {
-      slide.querySelectorAll('.list > div').forEach((d) => steps.push([d]));
-      return steps;
-    }
-
     // 10. Clôture / Bilan (S25) : les points de bilan
     if (slide.querySelector('.big')?.textContent.includes('Avant') || slide.querySelector('.pill')?.textContent.includes('Bilan')) {
       slide.querySelectorAll('.list > div').forEach((d) => steps.push([d]));
       return steps;
     }
 
-    // 11. Prompts dans des colonnes sans carte (ex: S16 WordPrompt)
-    if (slide.querySelectorAll('.grid.g3 > .col > .prompt').length > 0) {
-      slide.querySelectorAll('.grid.g3 > .col').forEach((c) => steps.push([c]));
+    // 11. Prompts dans des colonnes sans carte (ex: S23, S24)
+    if (slide.querySelectorAll('.grid > .col > .prompt').length > 0) {
+      slide.querySelectorAll('.grid > .col').forEach((c) => steps.push([c]));
       return steps;
     }
 
@@ -152,6 +140,13 @@ window.MOTION = {
     // 13. Direction Artistique (S20) : les prompts de cadrage DA
     if (slide.querySelector('.top')?.textContent.includes('Direction artistique')) {
       slide.querySelectorAll('.col > .prompt').forEach((p) => steps.push([p]));
+      return steps;
+    }
+
+    // 13b. Fiche outil : les lignes de la fiche, une à une
+    const ficheRows = slide.querySelectorAll('.fiche-row');
+    if (ficheRows.length > 0) {
+      ficheRows.forEach((r) => steps.push([r]));
       return steps;
     }
 

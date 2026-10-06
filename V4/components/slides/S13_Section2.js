@@ -1,1 +1,1 @@
-SLIDES.push(UI.section('02', 'Bien rédiger<br><em>un prompt</em>', 'La méthode recommandée par Anthropic, l\'éditeur de Claude.'));
+SLIDES.push(UI.section('02', 'Prendre en main l\'IA<br><em>pour les projets du quotidien</em>', 'Les fondamentaux des prompts avec Copilot.'));
